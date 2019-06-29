@@ -1,1 +1,4 @@
 Pipfile.lock
+.idea/
+db.sqlite3
+bezalelid/__pycache__/
