@@ -3,3 +3,5 @@ Pipfile.lock
 db.sqlite3
 bezalelid/__pycache__/
 .env
+graduates/__pycache__/
+graduates/migrations/__pycache__/
