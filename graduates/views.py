@@ -17,6 +17,5 @@ def year(request, class_year):
 
 def graduate(request, class_year, name):
     y = Class.objects.get(year=class_year)
-    graduate = Graduate.objects.get(year=y, name=name)
-    print(graduate)
-    return render(request, 'graduates/graduate.html', {'graduate': graduate})
+    cur_graduate = Graduate.objects.get(year=y, name=name)
+    return render(request, 'graduates/graduate.html', {'graduate': cur_graduate})
