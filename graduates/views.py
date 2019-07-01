@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from django.http import HttpResponse
+from django.shortcuts import render
 from .models import Class, Graduate
 
 app_name = 'graduates'
@@ -16,5 +17,6 @@ def year(request, class_year):
 
 def graduate(request, class_year, name):
     y = Class.objects.get(year=class_year)
-    g = Graduate.objects.get(year=y, name=name)
-    return HttpResponse("Hello, world. You're at the polls index.")
+    graduate = Graduate.objects.get(year=y, name=name)
+    print(graduate)
+    return render(request, 'graduates/graduate.html', {'graduate': graduate})
