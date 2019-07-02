@@ -15,7 +15,7 @@ def year(request, class_year):
     return HttpResponse("welcome to " + str(class_year))
 
 
-def graduate(request, class_year, name):
+def graduate(request, class_year, name_en):
     y = Class.objects.get(year=class_year)
-    cur_graduate = Graduate.objects.get(year=y, name=name)
+    cur_graduate = Graduate.objects.get(year=y, name_en=name_en)
     return render(request, 'graduates/graduate.html', {'graduate': cur_graduate})
