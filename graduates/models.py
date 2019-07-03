@@ -35,21 +35,6 @@ class Graduate(models.Model):
 
 
 class GraduateAdmin(ModelAdmin):
-    # list_display = [
-    #                 'Contact Information',
-    #                 'project_title_he',
-    #                 'name_he',
-    #                 'project_title_en',
-    #                 'name_en',
-    #                 'project_title_ar',
-    #                 'name_ar',
-    #                 'instagram',
-    #                 'email',
-    #                 'personal_website',
-    #                 'bezalel_catalog',
-    #                 'year',
-    #                 ]
-    # list_filter = ('sku', 'unit')
     fieldsets = (
         ('Contact Information', {
             'fields': (
