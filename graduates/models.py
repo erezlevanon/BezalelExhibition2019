@@ -28,6 +28,9 @@ class Graduate(models.Model):
     personal_website = models.CharField(max_length=60)
     bezalel_catalog = models.CharField(max_length=60)
 
+    # Media
+    image_0 = models.ImageField()
+
     year = models.ForeignKey(Class, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -43,6 +46,11 @@ class GraduateAdmin(ModelAdmin):
                        'personal_website',
                        'bezalel_catalog',
                        'year',
+                       )
+        }),
+        ('Media', {
+            'fields': (
+                       'image_0',
                        )
         }),
         ('Hebrew', {
