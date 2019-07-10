@@ -11,22 +11,22 @@ class Class(models.Model):
 
 class Graduate(models.Model):
     # Hebrew
-    project_title_he = models.CharField(max_length=100)
-    name_he = models.CharField(max_length=25)
+    project_title_he = models.CharField(max_length=100, default="", blank=True)
+    name_he = models.CharField(max_length=35, default="", blank=True)
 
     # English
-    project_title_en = models.CharField(max_length=100)
-    name_en = models.CharField(max_length=25)
+    project_title_en = models.CharField(max_length=100, default="", blank=True)
+    name_en = models.CharField(max_length=35, default="", blank=True)
 
     # Arabic
-    project_title_ar = models.CharField(max_length=100)
-    name_ar = models.CharField(max_length=25)
+    project_title_ar = models.CharField(max_length=100, default="", blank=True)
+    name_ar = models.CharField(max_length=35, default="", blank=True)
 
     # Contact Information
-    instagram = models.CharField(max_length=60)
-    email = models.CharField(max_length=60)
-    personal_website = models.CharField(max_length=60)
-    bezalel_catalog = models.CharField(max_length=60)
+    instagram = models.CharField(max_length=60, default="", blank=True)
+    email = models.CharField(max_length=60, default="", blank=True)
+    personal_website = models.CharField(max_length=60, default="", blank=True)
+    bezalel_catalog = models.CharField(max_length=60, default="", blank=True)
 
     # Media
     profile_image = models.ImageField()
