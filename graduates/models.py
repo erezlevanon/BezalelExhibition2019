@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.admin import ModelAdmin
+from django.contrib.admin import ModelAdmin, TabularInline
 
 
 class Class(models.Model):
@@ -29,12 +29,21 @@ class Graduate(models.Model):
     bezalel_catalog = models.CharField(max_length=60)
 
     # Media
-    image_0 = models.ImageField()
+    profile_image = models.ImageField()
 
     year = models.ForeignKey(Class, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name_he + ' (' + str(self.year) + ')'
+
+
+class ProcessImage(models.Model):
+    graduate = models.ForeignKey(Graduate, on_delete=models.CASCADE)
+    image = models.ImageField()
+
+
+class ImageInline(TabularInline):
+    model = ProcessImage
 
 
 class GraduateAdmin(ModelAdmin):
@@ -46,11 +55,6 @@ class GraduateAdmin(ModelAdmin):
                        'personal_website',
                        'bezalel_catalog',
                        'year',
-                       )
-        }),
-        ('Media', {
-            'fields': (
-                       'image_0',
                        )
         }),
         ('Hebrew', {
@@ -71,4 +75,13 @@ class GraduateAdmin(ModelAdmin):
                 'project_title_ar',
             ),
         }),
+        ('Media', {
+            'fields': (
+                'profile_image',
+            )
+        }),
     )
+
+    inlines = [
+        ImageInline,
+    ]
