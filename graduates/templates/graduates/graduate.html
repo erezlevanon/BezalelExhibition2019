@@ -1,3 +1,8 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'graduates/styles.css' %}"
+
 <body>
-{{ graduate }}
+{{ graduate.name_he }}
+<img src="{{ graduate.profile_image.url }}">
+
 </body>
