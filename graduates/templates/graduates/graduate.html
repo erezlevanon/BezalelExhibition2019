@@ -1,8 +1,10 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'graduates/styles.css' %}"
+{% extends "graduates/base.html" %}
 
-<body>
-{{ graduate.name_he }}
-<img src="{{ graduate.profile_image.url }}">
-
-</body>
+{% block content %}
+    <div class="graduate-header" layout="column" layout-align="center center">
+        <div>
+            {{ graduate.name_he }}
+        </div>
+        <img class="profile-picture" src="{{ graduate.profile_image.url }}">
+    </div>
+{% endblock %}
