@@ -5,3 +5,4 @@ bezalelid/__pycache__/
 .env
 graduates/__pycache__/
 graduates/migrations/__pycache__/
+media/
