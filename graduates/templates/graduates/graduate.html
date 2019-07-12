@@ -1,10 +1,31 @@
 {% extends "graduates/base.html" %}
 
 {% block content %}
+    <div class="top-spacer"></div>
     <div class="graduate-header" layout="column" layout-align="center center">
-        <div>
+        <img class="profile-picture" src="{{ graduate.profile_image.url }}">
+        <div class="name">
             {{ graduate.name_he }}
         </div>
-        <img class="profile-picture" src="{{ graduate.profile_image.url }}">
+        <div class="links" layout="row" layout-align="space-around center">
+            <div class="bezalel-catalog-container" layout="row" layout-align="end center">
+                <span>
+                    עמוד הפרוייקט<br/>בקטלוג בצלאל
+                </span>
+            </div>
+            <div class="icons-container"></div>
+        </div>
+    </div>
+    <div class="carousel-container">
+        <swiper>
+            <slides>
+                {% for image in graduate.processimage_set.all %}
+                    <slide>
+                        <img src="{{ image.image.url }}">
+                    </slide>
+                {% endfor %}
+            </slides>
+            <pagination></pagination>
+        </swiper>
     </div>
 {% endblock %}

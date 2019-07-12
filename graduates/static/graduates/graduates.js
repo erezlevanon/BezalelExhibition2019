@@ -1,6 +1,5 @@
-/**
- * Include the dependency on 'ngMaterial'
- */
-angular.module('GraduatesApp', ['ngMaterial', 'ngMessages']);
-
-console.log("yo");
+const graduatesApp = angular.module('GraduatesApp', [
+    'ngMaterial',
+    'ngMessages',
+    'ui.swiper',
+]);
