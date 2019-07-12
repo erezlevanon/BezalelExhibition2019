@@ -14,6 +14,9 @@ import django_heroku
 import dj_database_url
 from decouple import config
 import os
+import json
+
+from google.oauth2 import service_account
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -84,6 +87,27 @@ DATABASES = {
     }
 }
 
+if config('DEPLOYED', cast=bool):
+    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+    GS_BUCKET_NAME = config('GS_BUCKET_NAME')
+    GS_DEFAULT_ACL = config('GS_DEFAULT_ACL')
+
+    credentials_info = '''{
+                    "type": "service_account",
+                    "project_id": "''' + config('GS_PROJECT_ID') + '''",
+                    "private_key_id": "''' + config('GS_PRIVATE_KEY_ID') + '''",
+                    "private_key": "''' + config('GS_PRIVATE_KEY') + '''",
+                    "client_email": "''' + config('GS_CLIENT_EMAIL') + '''",
+                    "client_id": "''' + config('GS_CLIENT_ID') + '''",
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token",
+                    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                    "client_x509_cert_url": "''' + config('GS_X509') + '''"
+                }'''
+
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
+        json.loads(credentials_info, encoding='utf-8')
+    )
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

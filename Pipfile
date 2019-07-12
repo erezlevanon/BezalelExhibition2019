@@ -12,6 +12,7 @@ django-heroku = "*"
 django = "*"
 dj-database-url = "*"
 pillow = "*"
+django-storages = {extras = ["google"],version = "*"}
 
 [requires]
 python_version = "3.7"
