@@ -16,14 +16,14 @@
                 קטלוג בצלאל
                 </a>
             </div>
-            {% if graduate.instagram %}
-                <a href="{{ graduate.instagram }}">
+            {% if instagram %}
+                <a href="{{ instagram }}">
                     <md-icon class="md-72 material-icons"
                              md-svg-icon="{% static 'graduates/instagram.svg' %}"></md-icon>
                 </a>
             {% endif %}
-            {% if graduate.personal_website %}
-                <a href="{{ graduate.personal_website }}" target="_blank">
+            {% if website %}
+                <a href="{{ website }}" target="_blank">
                     <md-icon class="md-72 material-icons"
                              md-svg-icon="{% static 'graduates/website.svg' %}"></md-icon>
                 </a>

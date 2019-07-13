@@ -16,6 +16,20 @@ def year(request, class_year):
     return redirect('/', permanent=True)
 
 
+def instagram_helper(instagram):
+    if not instagram:
+        return False
+    return 'http://www.instagram.com/' + instagram.split('/')[-1]
+
+
+def website_helper(website):
+    if not website:
+        return False
+    if not str(website).startswith('http'):
+        return 'http://' + website
+    return website
+
+
 def graduate(request, class_year, name_en):
     y = Class.objects.get(year=class_year)
     cur_graduate = Graduate.objects.get(year=y, name_en__iexact=name_en)
@@ -25,4 +39,8 @@ def graduate(request, class_year, name_en):
     graduates_set.add(cur_graduate.name_en)
     request.session[SESSION_GRADUATES_KEY] = list(graduates_set)
 
-    return render(request, 'graduates/graduate.html', {'graduate': cur_graduate})
+    return render(request, 'graduates/graduate.html', {
+        'graduate': cur_graduate,
+        'instagram': instagram_helper(cur_graduate.instagram),
+        'website': website_helper(cur_graduate.personal_website),
+    })
