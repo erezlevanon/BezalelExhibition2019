@@ -6,8 +6,8 @@ app_name = 'graduates'
 SESSION_GRADUATES_KEY = 'graduates'
 
 
-def index(requset):
-    viewed = requset.session.get(SESSION_GRADUATES_KEY, [])
+def index(request):
+    viewed = request.session.get(SESSION_GRADUATES_KEY, [])
     return HttpResponse(viewed)
 
 
