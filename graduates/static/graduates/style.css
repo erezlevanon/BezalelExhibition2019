@@ -24,6 +24,8 @@
 
 .links {
     width: 100%;
+    padding-right: 100px !important;
+    padding-left: 100px !important;
 }
 
 .top-spacer {
@@ -53,10 +55,6 @@
     margin: 50px 50px 50px auto;
     text-decoration: none;
     color: inherit;
-}
-
-.icons-container {
-    /*width: 65%;*/
 }
 
 .carousel-container {
