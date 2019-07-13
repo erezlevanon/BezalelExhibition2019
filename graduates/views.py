@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Class, Graduate
 
 app_name = 'graduates'
@@ -10,7 +10,7 @@ def index(requset):
 
 
 def year(request, class_year):
-    return HttpResponse("welcome to " + str(class_year))
+    return redirect('/', permanent=True)
 
 
 def graduate(request, class_year, name_en):
