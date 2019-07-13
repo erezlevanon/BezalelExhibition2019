@@ -8,7 +8,8 @@ SESSION_GRADUATES_KEY = 'graduates'
 
 def index(request):
     viewed = request.session.get(SESSION_GRADUATES_KEY, [])
-    return HttpResponse(viewed)
+    visited_graduates = Graduate.objects.filter(name_en__in=viewed)
+    return HttpResponse(visited_graduates)
 
 
 def year(request, class_year):
