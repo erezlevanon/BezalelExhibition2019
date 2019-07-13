@@ -34,7 +34,7 @@ class Graduate(models.Model):
     year = models.ForeignKey(Class, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name_he
+        return self.name_he + ' | ' + self.name_en + ' | ' + self.project_title_he
 
 
 class ProcessImage(models.Model):
