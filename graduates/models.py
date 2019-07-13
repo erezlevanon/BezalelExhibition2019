@@ -29,7 +29,7 @@ class Graduate(models.Model):
     bezalel_catalog = models.CharField(max_length=60, default="", blank=True)
 
     # Media
-    profile_image = models.ImageField()
+    profile_image = models.ImageField(blank=True)
 
     year = models.ForeignKey(Class, on_delete=models.CASCADE)
 
