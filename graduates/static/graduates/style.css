@@ -27,7 +27,7 @@
 
 .bezalel-catalog-container {
     font-size: 30pt;
-    width: 35%;
+    /*width: 35%;*/
     border-style: solid;
     border-width: 0 thin 0 0;
 }
@@ -39,7 +39,7 @@
 }
 
 .icons-container {
-    width: 65%;
+    /*width: 65%;*/
 }
 
 .carousel-container {
@@ -54,4 +54,15 @@
 
 .carousel-container img {
     height: 512px;
+}
+
+.social-btn {
+    font-size: 50px;
+    height: 50px;
+}
+
+.material-icons.md-72 {
+font-size: 72px !important;
+height: 72px !important;
+width: 72px !important;
 }

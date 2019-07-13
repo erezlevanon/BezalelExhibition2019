@@ -1,5 +1,5 @@
 {% extends "graduates/base.html" %}
-
+{% load static %}
 {% block content %}
     <div class="top-spacer"></div>
     <div class="graduate-header" layout="column" layout-align="center center">
@@ -16,7 +16,24 @@
                     עמוד הפרוייקט<br/>בקטלוג בצלאל
                 </a>
             </div>
-            <div class="icons-container"></div>
+            {% if graduate.instagram %}
+                <a href="{{ graduate.instagram }}">
+                    <md-icon class="md-72 material-icons"
+                             md-svg-icon="{% static 'graduates/instagram.svg' %}"></md-icon>
+                </a>
+            {% endif %}
+            {% if graduate.personal_website %}
+                <a href="{{ graduate.personal_website }}" target="_blank">
+                    <md-icon class="md-72 material-icons"
+                             md-svg-icon="{% static 'graduates/website.svg' %}"></md-icon>
+                </a>
+            {% endif %}
+            {% if graduate.email %}
+                <a href="mailto:{{ graduate.email }}">
+                    <md-icon class="md-72 material-icons"
+                             md-svg-icon="{% static 'graduates/email.svg' %}"></md-icon>
+                </a>
+            {% endif %}
         </div>
     </div>
     <div class="carousel-container">
