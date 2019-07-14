@@ -3,7 +3,9 @@
 {% block content %}
     <div class="top-spacer"></div>
     <div class="graduate-header" layout="column" layout-align="center center">
-        <img class="profile-picture" src="{{ graduate.profile_image.url }}">
+        {% if graduate.profile_image %}
+            <img class="profile-picture" src="{{ graduate.profile_image.url }}">
+        {% endif %}
         <div class="name">
             {{ graduate.name_he }}
         </div>
