@@ -1,39 +1,39 @@
 {% extends "graduates/base.html" %}
 {% load static %}
 {% block content %}
-    <div class="top-image" layout="row" layout-align="start end">
-        <p>
-            תערוכת
-            <br>
-            בוגרים
-            <br>
-            עיצוב תעשייתי.
-        </p>
-    </div>
-    {% if has_visited %}
-        <div class="visited-graduates">
-            <div class="graduate-list-header" layout="row" layout-align="center center">
-                <section>
-                    פרויקטים שביקרת
-                </section>
-            </div>
-            <div class="graduates-list" layout="column" layout-align="center center">
-                {% for graduate in visited_graduates %}
-                    {% include 'graduates/graduate_list_item.html' with graduate=graduate %}
-                {% endfor %}
-            </div>
+    <div class="index-container" layout="column">
+        <div class="top-image" layout="row" layout-align="start end">
+            <p>
+                תערוכת
+                <br>
+                בוגרים
+                <br>
+                עיצוב תעשייתי.
+            </p>
         </div>
+        {% if has_visited %}
+            <div class="visited-graduates">
+                <div class="graduate-list-header" layout="row" layout-align="center center">
+                    <section>
+                        פרויקטים שביקרת
+                    </section>
+                </div>
+                <div class="graduates-list" layout="column" layout-align="center center">
+                    {% for graduate in visited_graduates %}
+                        {% include 'graduates/graduate_list_item.html' with graduate=graduate %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        <div class="graduate-list-header" layout="row" layout-align="center center">
+            <section>
+                מציגים
+            </section>
         </div>
-    {% endif %}
-    <div class="graduate-list-header" layout="row" layout-align="center center">
-        <section>
-            מציגים
-        </section>
+        <div class="graduates-list" layout="column" layout-align="center center">
+            {% for graduate in graduates %}
+                {% include 'graduates/graduate_list_item.html' with graduate=graduate %}
+            {% endfor %}
+        </div>
     </div>
-    <div class="graduates-list" layout="column" layout-align="center center">
-        {% for graduate in graduates %}
-            {% include 'graduates/graduate_list_item.html' with graduate=graduate %}
-        {% endfor %}
-    </div>
-
 {% endblock %}
