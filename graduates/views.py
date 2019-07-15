@@ -49,3 +49,16 @@ def graduate(request, class_year, name_en):
         'instagram': instagram_helper(cur_graduate.instagram),
         'website': website_helper(cur_graduate.personal_website),
     })
+
+
+def clear(request, name=''):
+    if not name:
+        request.session.clear()
+    else:
+        found_graduate = Graduate.objects.get(name_en__iexact=name)
+        if found_graduate:
+            graduates_set = set(request.session.get(SESSION_GRADUATES_KEY, []))
+            graduates_set.remove(found_graduate.name_en)
+            request.session[SESSION_GRADUATES_KEY] = list(graduates_set)
+
+    return redirect('/', permanent=False)
