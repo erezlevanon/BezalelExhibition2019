@@ -39,6 +39,10 @@ class Graduate(models.Model):
             suffix = ' | *'
         return self.name_he + ' | ' + self.name_en + ' | ' + self.project_title_he + suffix
 
+    def link(self):
+        name = self.name_en.replace(' ', '%20').lower()
+        return 'http://www.bezalel-id.com/' + str(self.year) + '/' + name
+
 
 class ProcessImage(models.Model):
     graduate = models.ForeignKey(Graduate, on_delete=models.CASCADE)

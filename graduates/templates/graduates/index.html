@@ -1,0 +1,37 @@
+{% extends "graduates/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="top-image" layout="row" layout-align="start end">
+        <p>
+            תערוכת
+            <br>
+            בוגרים
+            <br>
+            עיצוב תעשייתי.
+        </p>
+    </div>
+    {% if has_visited %}
+        <div class="visited-graduates">
+            <div class="graduate-list-header">
+                פרויקטים שביקרת
+            </div>
+            <div class="graduates-list" layout="column" layout-align="center center">
+                {% for graduate in visited_graduates %}
+                    {% include 'graduates/graduate_list_item.html' with graduate=graduate %}
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+    {% endif %}
+    <div class="graduate-list-header" layout="row" layout-align="center center">
+        <section>
+            מציגים
+        </section>
+    </div>
+    <div class="graduates-list" layout="column" layout-align="center center">
+        {% for graduate in graduates %}
+            {% include 'graduates/graduate_list_item.html' with graduate=graduate %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% load static %}
+<div class="graduate-list-item" layout="row" layout-align="start center">
+    <a href={{ graduate.link }} layout="row" layout-align="start center">
+        <div>
+            {% if graduate.profile_image %}
+                <img class="graduate-list-pic" src="{{ graduate.profile_image.url }}">
+            {% endif %}
+        </div>
+        <div class="graduate-item-info" layout="column" layout-align="center start">
+            <div class="graduate-item-name">
+                {{ graduate.name_he }}
+            </div>
+            <div class="graduate-item-project">
+                {{ graduate.project_title_he }}
+            </div>
+        </div>
+    </a>
+</div>
