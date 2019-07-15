@@ -12,8 +12,10 @@
     </div>
     {% if has_visited %}
         <div class="visited-graduates">
-            <div class="graduate-list-header">
-                פרויקטים שביקרת
+            <div class="graduate-list-header" layout="row" layout-align="center center">
+                <section>
+                    פרויקטים שביקרת
+                </section>
             </div>
             <div class="graduates-list" layout="column" layout-align="center center">
                 {% for graduate in visited_graduates %}
