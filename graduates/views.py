@@ -9,7 +9,7 @@ SESSION_GRADUATES_KEY = 'graduates'
 def index(request):
     viewed = request.session.get(SESSION_GRADUATES_KEY, [])
     visited_graduates = Graduate.objects.filter(name_en__in=viewed)
-    graduates = Graduate.objects.all()
+    graduates = Graduate.objects.all().order_by("name_he")
     return render(request, 'graduates/index.html', {
         'has_visited': visited_graduates.__len__() > 0,
         'visited_graduates': visited_graduates,
