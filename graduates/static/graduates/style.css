@@ -152,6 +152,10 @@
     margin-right: 20px;
 }
 
+.graduate-item-info div {
+    white-space: nowrap;
+}
+
 .graduate-item-name {
     margin-right: 0;
 }
