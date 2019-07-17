@@ -1,7 +1,14 @@
 {% extends "graduates/base.html" %}
 {% load static %}
 {% block content %}
-    <div class="top-spacer"></div>
+    <div class="top-spacer">
+        <a href="/" class="home-button"
+                   class="md-icon-button home-button md-72">
+            <md-icon class="md-72 material-icons"
+                     md-svg-icon="{% static 'graduates/outline-home-24px.svg' %}">
+            </md-icon>
+        </a>
+    </div>
     <div class="graduate-header" layout="column" layout-align="center center">
         {% if graduate.profile_image %}
             <img class="profile-picture" src="{{ graduate.profile_image.url }}">
